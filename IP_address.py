@@ -5,7 +5,6 @@ class IP_address:
         self.size = size
 
     def get_ip_address(self):
-        print('hello', self.ip_key)
         return self.ip_key
 
     def get_freq_list(self):
@@ -30,7 +29,6 @@ class IP_address:
 
     def get_sum_list(self):
         sum_dict = {}
-
         for i in self.data:
             key = (i[0] // 10)
             if (key in range(0, self.size)) and key not in sum_dict:
@@ -47,7 +45,6 @@ class IP_address:
 
         for k, v in sorted(sum_dict.items()):
             sum_list.append([k, v])
-
         return sum_list
 
     def get_avg_list(self):
@@ -104,28 +101,3 @@ class IP_address:
             [i[1] for i in self.get_sum_list()], \
             [i[1] for i in self.get_avg_list()]
         return "{}:freq={},sum={},avg={}".format(ip_address, freq, pack_sum, avg_pack)
-
-
-def process(line):
-    line = line.split('\t')
-    time_frame = line[1].find('.')
-    time_frame = int(line[1][:time_frame])
-    return (line[2], time_frame, int(line[7]))
-
-def read_file(filename):
-    readfile = open(filename, "r")
-    read = readfile.readlines()
-    file_list = []
-    for line in read:
-        lines = process(line)
-        file_list.append(lines)
-    return file_list
-
-def get_unique_ip_data_list(ip_data):
-    ip_dict = {}
-    for i in range(len(ip_data)):
-        ip = ip_data[i][0]
-        if ip not in ip_dict:
-            ip_dict[ip] = []
-        ip_dict[ip].append((ip_data[i][1], ip_data[i][2]))
-    return ip_dict

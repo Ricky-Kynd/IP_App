@@ -9,14 +9,15 @@ def redirector(inputStr):
 	textbox.insert(tk.END, inputStr)
 
 def load_file():
-	pass #modify this - display all statistics info
+	pass
+  
 
 def click():
 	pass #modify this
 	if comboData.current() == 0:
 		# get sum
 		my_unit = 100
-	elif  comboData.current() == 1: 
+	elif comboData.current() == 1: 
 		# get freq
 		my_unit = 1
 	else: 

@@ -16,12 +16,12 @@ class Histogram:
 
         #--- print star and spaces
         for row in range(max_len -1, -1, -1):
-            for column in range(len(data_y)):
-                if row < data_y[column]:
-                    print('*', end=" " * (self.x_width - 1))
-                else:
-                    print(end=" " * (self.x_width))
-            print('')
+          for column in range(len(data_y)):
+              if row < data_y[column]:
+                  print('*', end=" " * (self.x_width - 1))
+              else:
+                  print(end=" " * (self.x_width))
+          print('')
         #--- print border bottom
         print('{}'.format('-' * self.x_width * len(data_y)))
         #--- Print names
